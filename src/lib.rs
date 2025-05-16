@@ -52,11 +52,13 @@ impl ContractData {
         {
             let initial_storage_usage = env::storage_usage();
             self.store_iterable_map.insert(tmp_account_id.clone(), 100);
+            self.store_iterable_map.flush();
             self.store_iterable_map_storage_usage = env::storage_usage() - initial_storage_usage;
         }
         {
             let initial_storage_usage = env::storage_usage();
             self.store_lookup_map.insert(tmp_account_id.clone(), 100);
+            self.store_lookup_map.flush();
             self.store_lookup_map_storage_usage = env::storage_usage() - initial_storage_usage;
         }
         {
